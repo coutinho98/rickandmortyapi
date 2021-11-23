@@ -1,3 +1,4 @@
+import "./App.css";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
   }, []);
 
   return (
-    <div className="row">
+    <div className="container">
       {characters.map((item, index) => (
         <div key={index} className="col">
           <div className="card" style={{ minWidth: "200" }}>
