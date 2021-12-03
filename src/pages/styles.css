@@ -1,0 +1,23 @@
+  .card-img {
+  border-radius: 150px;
+  transition: transform 400ms ease-in-out;
+}
+.card-img:hover {
+  transform: scale(0.8);
+}
+
+.card {
+  text-align: center;
+  
+}
+
+.pagination {
+  justify-content: center;
+}
+
+.col {
+  width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+} 

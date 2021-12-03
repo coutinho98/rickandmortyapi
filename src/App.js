@@ -1,35 +1,50 @@
 import "./App.css";
 import { useEffect, useState } from "react";
+import Characters from "./pages/Characters";
+import Pagination from "./pages/Paginacao";
 
 function App() {
   const [characters, setCharacters] = useState([]);
+  const [info, setInfo] = useState({});
 
-  const urlInitial = "https://rickandmortyapi.com/api/character";
+  const url = "https://rickandmortyapi.com/api/character";
 
-  const fetchCharacters = (url) => {
+  const fetched = (url) => {
     fetch(url)
       .then((response) => response.json())
-      .then((data) => setCharacters(data.results))
-      .catch((e) => console.log(e));
+      .then((data) => {
+        setCharacters(data.results);
+        setInfo(data.info);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const onPrevious = () => {
+    fetched(info.prev);
+  };
+
+  const onNext = () => {
+    fetched(info.next);
   };
 
   useEffect(() => {
-    fetchCharacters(urlInitial);
+    fetched(url);
   }, []);
 
   return (
-    <div className="container">
-      {characters.map((item, index) => (
-        <div key={index} className="col">
-          <div className="card" style={{ minWidth: "200" }}>
-            <img src={item.image} alt="" />
-            <div className="card-body">
-              <h5 className="card-title">{item.name}</h5>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
+    <>
+      <Pagination />
+
+      <Pagination
+        prev={info.prev}
+        next={info.next}
+        onPrevious={onPrevious}
+        onNext={onNext}
+      />
+      <div className="container">
+        <Characters characters={characters} />
+      </div>
+    </>
   );
 }
 

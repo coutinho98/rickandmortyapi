@@ -1,10 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .container {
-    max-width: 1000px;
-    margin: 0 auto;
-    min-height: 100vh;
-    padding: 30px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
-  }
-  
+  width: 1210px;
+  margin: 0 auto;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
