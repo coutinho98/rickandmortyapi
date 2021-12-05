@@ -8,20 +8,16 @@ const Paginacao = ({ prev, next, onPrevious, onNext }) => {
   };
 
   return (
-    <div className="pagination">
+    <div>
       <ul>
         {prev ? (
           <li>
-            <button className="page-link" onClick={handlePrevious}>
-              Previous
-            </button>
+            <button onClick={handlePrevious}>Previous</button>
           </li>
         ) : null}
         {next ? (
           <li>
-            <button className="page-link" onClick={handleNext}>
-              Next
-            </button>
+            <button onClick={handleNext}>Next</button>
           </li>
         ) : null}
       </ul>
